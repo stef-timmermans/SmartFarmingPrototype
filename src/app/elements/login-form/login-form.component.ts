@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Output, EventEmitter } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -14,6 +14,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 })
 export class LoginForm {
   private fb = inject(NonNullableFormBuilder);
+
+  @Output() loginSuccess = new EventEmitter<void>();
+
   validateForm = this.fb.group({
     username: this.fb.control('', [Validators.required]),
     password: this.fb.control('', [Validators.required]),
@@ -22,7 +25,13 @@ export class LoginForm {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
+      const { username, password } = this.validateForm.value;
+
+      if (username === 'johndoe@smartfarming.com' && password === 'password') {
+        this.loginSuccess.emit();
+      } else {
+        alert('Invalid username or password');
+      }
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
