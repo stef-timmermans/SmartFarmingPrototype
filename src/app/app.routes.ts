@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { Login } from './pages/login/login';
-import { Welcome } from './pages/welcome/welcome';
+import { Home } from './pages/home/home';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: Login },
-  { path: 'welcome', component: Welcome },
+  { path: 'welcome', component: Home },
   { path: '**', redirectTo: 'login' }
 ];
