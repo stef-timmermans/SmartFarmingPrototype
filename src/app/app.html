@@ -12,26 +12,26 @@
           <h1>Smart Farming</h1>
         </a>
       </div>
+
       <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/welcome">Welcome</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a>Monitor</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a>Workplace</a>
-            </li>
-          </ul>
+        <li nz-menu-item nzMatchRouter>
+          <!-- TODO: Add paths for correct pages -->
+          <a routerLink="/home">
+            <span nz-icon nzType="dashboard"></span>
+            <span>Monitoring</span>
+          </a>
         </li>
-        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a>Basic Form</a>
-            </li>
-          </ul>
+        <li nz-menu-item nzMatchRouter>
+          <a routerLink="/home">
+            <span nz-icon nzType="dashboard"></span>
+            <span>Irrigation</span>
+          </a>
+        </li>
+        <li nz-menu-item nzMatchRouter>
+          <a routerLink="/home">
+            <span nz-icon nzType="dashboard"></span>
+            <span>Mechanical Tasks</span>
+          </a>
         </li>
       </ul>
     </nz-sider>
