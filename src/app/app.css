@@ -11,6 +11,7 @@
 
 
 .ant-menu {
+  margin-top: 35px;
   background-color: var(--primary-color);
 }
 
@@ -20,10 +21,6 @@
   z-index: 10;
   min-height: 100vh;
   /*box-shadow: 2px 0 6px rgba(0,21,41,.35);*/
-
-  .ant-menu-submenu-vertical {
-    background-color: var(--secondary-color);
-  }
 }
 
 .ant-menu,
@@ -72,6 +69,7 @@
   font-size: 14px;
   font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
   vertical-align: middle;
+  color: #fff;
 }
 
 nz-header {
@@ -96,4 +94,8 @@ nz-content {
   padding: 24px;
   /*background: #fff;*/
   height: 100%;
+}
+
+.sidebar-icon {
+  padding-right: 0.34rem;
 }
