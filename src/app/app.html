@@ -8,29 +8,34 @@
     >
       <div class="sidebar-logo">
         <a routerLink="/home">
-          <img src="tractor-light.svg" alt="logo">
+          <img src="tractor-white.svg" alt="logo">
           <h1>Smart Farming</h1>
         </a>
       </div>
 
       <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
         <li nz-menu-item nzMatchRouter>
-          <!-- TODO: Add paths for correct pages -->
           <a routerLink="/home">
+            <i class="bi bi-house sidebar-icon"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li nz-menu-item nzMatchRouter>
+          <a routerLink="/monitoring">
             <i class="bi bi-activity sidebar-icon"></i>
             <span>Monitoring</span>
           </a>
         </li>
         <li nz-menu-item nzMatchRouter>
-          <a routerLink="/home">
+          <a routerLink="/irrigation">
             <i class="bi bi-water sidebar-icon"></i>
             <span>Irrigation</span>
           </a>
         </li>
         <li nz-menu-item nzMatchRouter>
-          <a routerLink="/home">
+          <a routerLink="/tasks">
             <i class="bi bi-gear sidebar-icon"></i>
-            <span>Mechanical Tasks</span>
+            <span>Tasks</span>
           </a>
         </li>
       </ul>
