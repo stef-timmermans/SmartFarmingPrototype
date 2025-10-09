@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --primary-color: lightgreen;
-  --secondary-color: forestgreen;
+  --primary-color: forestgreen;
+  --secondary-color: green;
   --dark-text-1: rgba(0, 0, 0, 0.85);
   --dark-text-2: rgba(64, 64, 64, 0.85);
 }

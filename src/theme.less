@@ -14,21 +14,27 @@
  *
  * https://ng.ant.design/docs/introduce/en
  */
+// Base colors
+@primary-color: forestgreen;
+@secondary-color: green;
 
 // Links
-@link-color: forestgreen;
-@link-hover-color: green;
+@link-color: @primary-color;
+@link-hover-color: @secondary-color;
 
 // Button
-@btn-primary-bg: forestgreen;
+@btn-primary-bg: @primary-color;
 @btn-primary-color: white;
 @btn-border-radius-base: 16px;
 
 // Inputs
-@input-border-color: forestgreen;
+@input-border-color: @primary-color;
 
 // Checkbox
-@checkbox-color: forestgreen;
+@checkbox-color: @primary-color;
 
-// 🧾 Borders
-@border-color-base: forestgreen;
+// Borders
+@border-color-base: @primary-color;
+
+// Menus
+@menu-item-font-size: 16px;
