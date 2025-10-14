@@ -1,6 +1,14 @@
 <!-- Zone 1 -->
 <nz-collapse>
-  <nz-collapse-panel nzHeader="Zone 1" [nzActive]="true">
+  <nz-collapse-panel [nzHeader]="zone1Header" [nzActive]="true">
+    <ng-template #zone1Header>
+      <div class="header-grid">
+        <span class="zone-title">Zone 1</span>
+        <span class="status-text">All Systems Operational</span>
+        <i class="bi bi-circle-fill status-circle-ok"></i>
+      </div>
+    </ng-template>
+
     <nz-list>
       <nz-list-item>
         <div class="item-grid">
@@ -32,7 +40,15 @@
 
 <!-- Zone 2A -->
 <nz-collapse>
-  <nz-collapse-panel nzHeader="Zone 2A">
+  <nz-collapse-panel [nzHeader]="zone2aHeader">
+    <ng-template #zone2aHeader>
+      <div class="header-grid">
+        <span class="zone-title">Zone 2A</span>
+        <span class="status-text">All Systems Operational</span>
+        <i class="bi bi-circle-fill status-circle-ok"></i>
+      </div>
+    </ng-template>
+
     <nz-list>
       <nz-list-item>
         <div class="item-grid">
@@ -64,7 +80,15 @@
 
 <!-- Zone 2B -->
 <nz-collapse>
-  <nz-collapse-panel nzHeader="Zone 2B">
+  <nz-collapse-panel [nzHeader]="zone2bHeader">
+    <ng-template #zone2bHeader>
+      <div class="header-grid">
+        <span class="zone-title">Zone 2B</span>
+        <span class="status-text">All Systems Operational</span>
+        <i class="bi bi-circle-fill status-circle-ok"></i>
+      </div>
+    </ng-template>
+
     <nz-list>
       <nz-list-item>
         <div class="item-grid">
