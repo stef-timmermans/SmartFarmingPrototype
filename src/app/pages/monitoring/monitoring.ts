@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {NzListComponent, NzListItemComponent} from 'ng-zorro-antd/list';
 import {NzCollapseComponent, NzCollapsePanelComponent} from 'ng-zorro-antd/collapse';
-import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-monitoring',
@@ -9,7 +8,6 @@ import {NgForOf} from '@angular/common';
     NzListComponent,
     NzListItemComponent,
     NzCollapsePanelComponent,
-    NgForOf,
     NzCollapseComponent
   ],
   templateUrl: './monitoring.html',
