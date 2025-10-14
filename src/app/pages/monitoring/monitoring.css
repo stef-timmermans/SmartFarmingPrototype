@@ -1,6 +1,13 @@
 .ant-collapse {
   margin-bottom: 1rem;
-  width: 60%;
+  width: 40rem;
+}
+
+.ant-list-item:first-of-type {
+  padding-top: 0;
+}
+.ant-list-item:last-of-type {
+  padding-bottom: 0;
 }
 
 .item-grid {
@@ -15,7 +22,7 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
   width: 100%;
   font-size: 16px;
 }
