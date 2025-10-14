@@ -43,3 +43,12 @@
 .status-circle-ok {
   color: #22c55e;
 }
+
+.status-text-bad {
+  color: #e11d48;
+}
+
+
+.status-circle-bad {
+  color: #e11d48;
+}

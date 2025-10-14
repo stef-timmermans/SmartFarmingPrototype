@@ -1,10 +1,10 @@
 <!-- Zone 1 -->
 <nz-collapse>
-  <nz-collapse-panel [nzHeader]="zone1Header" [nzActive]="true">
+  <nz-collapse-panel [nzHeader]="zone1Header">
     <ng-template #zone1Header>
       <div class="header-grid">
         <span class="zone-title">Zone 1</span>
-        <span class="status-text">All Systems Operational</span>
+        <span class="status-text">All Sensors Operational</span>
         <i class="bi bi-circle-fill status-circle-ok"></i>
       </div>
     </ng-template>
@@ -40,12 +40,12 @@
 
 <!-- Zone 2A -->
 <nz-collapse>
-  <nz-collapse-panel [nzHeader]="zone2aHeader">
+  <nz-collapse-panel [nzHeader]="zone2aHeader" [nzActive]="true">
     <ng-template #zone2aHeader>
       <div class="header-grid">
         <span class="zone-title">Zone 2A</span>
-        <span class="status-text">All Systems Operational</span>
-        <i class="bi bi-circle-fill status-circle-ok"></i>
+        <span class="status-text status-text-bad"><b>1</b> Sensor Down</span>
+        <i class="bi bi-circle-fill status-circle-bad"></i>
       </div>
     </ng-template>
 
@@ -57,9 +57,9 @@
         </div>
       </nz-list-item>
       <nz-list-item>
-        <div class="item-grid">
-          <span>Sensor 2</span>
-          <i class="bi bi-circle-fill status-circle-ok"></i>
+        <div class="item-grid status-text-bad status-text-bad">
+          <span>Sensor 2 | Last active <b>22</b> hours ago</span>
+          <i class="bi bi-circle-fill status-circle-bad"></i>
         </div>
       </nz-list-item>
       <nz-list-item>
@@ -84,7 +84,7 @@
     <ng-template #zone2bHeader>
       <div class="header-grid">
         <span class="zone-title">Zone 2B</span>
-        <span class="status-text">All Systems Operational</span>
+        <span class="status-text">All Sensors Operational</span>
         <i class="bi bi-circle-fill status-circle-ok"></i>
       </div>
     </ng-template>
