@@ -1,5 +1,6 @@
 
     <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item class="login-header">SMART FARMING</nz-form-item>
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your username!">
           <nz-input-group>
@@ -24,7 +25,5 @@
           <a class="login-form-forgot">Forgot password</a>
         </div>
       </div>
-      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
-      Or
-      <a>register now!</a>
+      <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
     </form>
