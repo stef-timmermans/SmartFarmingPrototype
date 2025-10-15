@@ -1,3 +1,13 @@
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+apx-chart {
+  width: 100%;
+}
+
 .ant-collapse {
   margin-bottom: 1rem;
   width: 40rem;
@@ -47,7 +57,6 @@
 .status-text-bad {
   color: #e11d48;
 }
-
 
 .status-circle-bad {
   color: #e11d48;
