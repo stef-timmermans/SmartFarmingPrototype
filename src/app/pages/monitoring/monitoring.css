@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 apx-chart {
@@ -10,7 +11,7 @@ apx-chart {
 
 .ant-collapse {
   margin-bottom: 1rem;
-  width: 40rem;
+  width: 50%;
 }
 
 .ant-list-item:first-of-type {
