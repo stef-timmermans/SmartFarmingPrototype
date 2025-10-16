@@ -27,7 +27,7 @@ export class LoginForm {
     if (this.validateForm.valid) {
       const { username, password } = this.validateForm.value;
 
-      if (username === 'johndoe@smartfarming.com' && password === 'password') {
+      if (username === 'johnsfarm@smartfarming.com' && password === 'password') {
         this.loginSuccess.emit();
       } else {
         alert('Invalid username or password');

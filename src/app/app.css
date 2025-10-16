@@ -17,10 +17,17 @@
 
 .menu-sidebar {
   background-color: var(--primary-color);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 256px;
   z-index: 10;
+}
+
+nz-layout {
+  margin-left: 128px;
   min-height: 100vh;
-  /*box-shadow: 2px 0 6px rgba(0,21,41,.35);*/
 }
 
 .ant-menu,
@@ -40,17 +47,12 @@
   transition: all .3s,padding 0s;
 }
 
-.trigger:hover {
-  /*color: #1890ff;*/
-}
-
 .sidebar-logo {
   position: relative;
   height: 64px;
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
-  /*background: #001529;*/
   transition: all .3s;
 }
 
@@ -66,7 +68,7 @@
   margin: 0 0 0 20px;
   /*color: #fff;*/
   font-weight: 600;
-  font-size: 14px;
+  font-size: 18px;
   font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
   vertical-align: middle;
   color: #fff;
@@ -83,19 +85,23 @@ nz-header {
   height: 64px;
   padding: 0;
   background-color: #61ed61;
-  /*box-shadow: 0 1px 4px rgba(0,21,41,.08);*/
 }
 
-nz-content {
-  margin: 24px;
+ant-layout-content {
+  height: 200vh;
 }
 
 .inner-content {
-  padding: 24px;
-  /*background: #fff;*/
-  height: 100%;
+  padding: 48px;
+  background: #f0f2f5;
+  height: auto;
 }
 
 .sidebar-icon {
   padding-right: 0.34rem;
+}
+
+.logout-menu-item {
+  bottom: 16px;
+  position: absolute;
 }

@@ -1,1 +1,168 @@
-<p>monitoring works!</p>
+<h1>Sensor Reading Averages</h1>
+<!-- Charts -->
+<div class="charts-grid">
+  <apx-chart
+    [series]="phOptions.series"
+    [chart]="phOptions.chart"
+    [xaxis]="phOptions.xaxis"
+    [stroke]="phOptions.stroke"
+    [title]="phOptions.title"
+    [yaxis]="phOptions.yaxis"
+    [tooltip]="phOptions.tooltip"
+    [colors]="phOptions.colors">
+  </apx-chart>
+
+  <apx-chart
+    [series]="nitrogenOptions.series"
+    [chart]="nitrogenOptions.chart"
+    [xaxis]="nitrogenOptions.xaxis"
+    [stroke]="nitrogenOptions.stroke"
+    [title]="nitrogenOptions.title"
+    [yaxis]="nitrogenOptions.yaxis"
+    [tooltip]="nitrogenOptions.tooltip"
+    [colors]="nitrogenOptions.colors">
+  </apx-chart>
+
+  <apx-chart
+    [series]="moistureOptions.series"
+    [chart]="moistureOptions.chart"
+    [xaxis]="moistureOptions.xaxis"
+    [stroke]="moistureOptions.stroke"
+    [title]="moistureOptions.title"
+    [yaxis]="moistureOptions.yaxis"
+    [tooltip]="moistureOptions.tooltip"
+    [colors]="moistureOptions.colors">
+  </apx-chart>
+
+  <apx-chart
+    [series]="salinityOptions.series"
+    [chart]="salinityOptions.chart"
+    [xaxis]="salinityOptions.xaxis"
+    [stroke]="salinityOptions.stroke"
+    [title]="salinityOptions.title"
+    [yaxis]="salinityOptions.yaxis"
+    [tooltip]="salinityOptions.tooltip"
+    [colors]="salinityOptions.colors">
+  </apx-chart>
+</div>
+
+<h1>Sensor Statuses</h1>
+<!-- Zone 1 -->
+<nz-collapse>
+  <nz-collapse-panel [nzHeader]="zone1Header">
+    <ng-template #zone1Header>
+      <div class="header-grid">
+        <span class="zone-title">Zone 1</span>
+        <span class="status-text">All Sensors Operational</span>
+        <i class="bi bi-circle-fill status-circle-ok"></i>
+      </div>
+    </ng-template>
+
+    <nz-list>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 1</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 2</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 3</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 4</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+    </nz-list>
+  </nz-collapse-panel>
+</nz-collapse>
+
+<!-- Zone 2A -->
+<nz-collapse>
+  <nz-collapse-panel [nzHeader]="zone2aHeader" [nzActive]="true">
+    <ng-template #zone2aHeader>
+      <div class="header-grid">
+        <span class="zone-title">Zone 2A</span>
+        <span class="status-text status-text-bad"><b>1</b> Sensor Down</span>
+        <i class="bi bi-circle-fill status-circle-bad"></i>
+      </div>
+    </ng-template>
+
+    <nz-list>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 1</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid status-text-bad status-text-bad">
+          <span>Sensor 2 | Last detected <b>22</b> hours ago</span>
+          <i class="bi bi-circle-fill status-circle-bad"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 3</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 4</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+    </nz-list>
+  </nz-collapse-panel>
+</nz-collapse>
+
+<!-- Zone 2B -->
+<nz-collapse>
+  <nz-collapse-panel [nzHeader]="zone2bHeader">
+    <ng-template #zone2bHeader>
+      <div class="header-grid">
+        <span class="zone-title">Zone 2B</span>
+        <span class="status-text">All Sensors Operational</span>
+        <i class="bi bi-circle-fill status-circle-ok"></i>
+      </div>
+    </ng-template>
+
+    <nz-list>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 1</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 2</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 3</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Sensor 4</span>
+          <i class="bi bi-circle-fill status-circle-ok"></i>
+        </div>
+      </nz-list-item>
+    </nz-list>
+  </nz-collapse-panel>
+</nz-collapse>
