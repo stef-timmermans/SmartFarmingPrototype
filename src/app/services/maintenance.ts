@@ -1,0 +1,37 @@
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class Maintenance {
+  isMaintenanceActive = false;
+
+  constructor(
+    private router: Router,
+    private notification: NzNotificationService
+  ) {}
+
+  async startMaintenance() {
+    if (this.isMaintenanceActive) return;
+
+    this.isMaintenanceActive = true;
+
+    // Navigate to /login
+    this.router.navigate(['/login']);
+    this.notification.warning(
+      'System Maintenance Has Started',
+      'The system is currently under maintenance. You have been logged out. Please try again later.'
+    );
+
+    // End maintenance after 10s
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    this.isMaintenanceActive = false;
+
+    this.notification.success(
+      'System Restored',
+      'Maintenance complete. The system is now back online.'
+    );
+  }
+}
