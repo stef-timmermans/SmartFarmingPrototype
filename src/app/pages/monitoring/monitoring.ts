@@ -11,6 +11,7 @@ import {
   ApexYAxis,
   ApexTooltip
 } from 'ng-apexcharts';
+import {NgClass} from '@angular/common';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -31,7 +32,8 @@ export type ChartOptions = {
     NzListItemComponent,
     NzCollapsePanelComponent,
     NzCollapseComponent,
-    NgApexchartsModule
+    NgApexchartsModule,
+    NgClass
   ],
   templateUrl: './monitoring.html',
   styleUrl: './monitoring.css'
@@ -104,5 +106,11 @@ export class Monitoring {
       yaxis: { title: { text: 'dS/m' } },
       tooltip: { y: { formatter: val => `${val} dS/m` } }
     };
+  }
+
+  sensor2Down = false;
+
+  toggleSensor2() {
+    this.sensor2Down = !this.sensor2Down;
   }
 }
