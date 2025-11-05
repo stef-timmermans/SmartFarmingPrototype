@@ -1,4 +1,5 @@
 <h1>Sensor Reading Averages</h1>
+
 <!-- Charts -->
 <div class="charts-grid">
   <apx-chart
@@ -47,6 +48,7 @@
 </div>
 
 <h1>Sensor Statuses</h1>
+
 <!-- Zone 1 -->
 <nz-collapse>
   <nz-collapse-panel [nzHeader]="zone1Header">
@@ -93,8 +95,12 @@
     <ng-template #zone2aHeader>
       <div class="header-grid">
         <span class="zone-title">Zone 2A</span>
-        <span class="status-text status-text-bad"><b>1</b> Sensor Down</span>
-        <i class="bi bi-circle-fill status-circle-bad"></i>
+        <span
+          class="status-text"
+          [class.status-text-bad]="sensor2Down"
+          [innerHTML]="sensor2Down ? '<b>1</b> Sensor Down' : 'All Sensors Operational'">
+        </span>
+        <i class="bi bi-circle-fill" [ngClass]="sensor2Down ? 'status-circle-bad' : 'status-circle-ok'"></i>
       </div>
     </ng-template>
 
@@ -106,9 +112,23 @@
         </div>
       </nz-list-item>
       <nz-list-item>
-        <div class="item-grid status-text-bad status-text-bad">
-          <span>Sensor 2 | Last detected <b>22</b> hours ago</span>
-          <i class="bi bi-circle-fill status-circle-bad"></i>
+        <div
+          class="item-grid toggleable-sensor"
+          [class.status-text-bad]="sensor2Down"
+          (click)="toggleSensor2()"
+        >
+        <span
+          class="sensor-text"
+          [innerHTML]="
+          sensor2Down
+          ? 'Sensor 2 | Last detected <b>a moment ago</b>'
+          : 'Sensor 2'
+          "
+          ></span>
+          <i
+            class="bi bi-circle-fill"
+            [ngClass]="sensor2Down ? 'status-circle-bad' : 'status-circle-ok'"
+          ></i>
         </div>
       </nz-list-item>
       <nz-list-item>

@@ -11,6 +11,8 @@ import {
   ApexYAxis,
   ApexTooltip
 } from 'ng-apexcharts';
+import {NgClass} from '@angular/common';
+import {NzNotificationService} from 'ng-zorro-antd/notification';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -31,7 +33,8 @@ export type ChartOptions = {
     NzListItemComponent,
     NzCollapsePanelComponent,
     NzCollapseComponent,
-    NgApexchartsModule
+    NgApexchartsModule,
+    NgClass
   ],
   templateUrl: './monitoring.html',
   styleUrl: './monitoring.css'
@@ -44,7 +47,7 @@ export class Monitoring {
   public moistureOptions!: ChartOptions;
   public salinityOptions!: ChartOptions;
 
-  constructor() {
+  constructor(private notification: NzNotificationService) {
     // Generate last 14 days ending on 29 October 2025
     const end = new Date(2025, 9, 29);
     const labels: string[] = [];
@@ -104,5 +107,29 @@ export class Monitoring {
       yaxis: { title: { text: 'dS/m' } },
       tooltip: { y: { formatter: val => `${val} dS/m` } }
     };
+  }
+
+  sensor2Down = false;
+
+  toggleSensor2() {
+    setTimeout(() => {
+      this.sensor2Down = !this.sensor2Down;
+
+      if (this.sensor2Down) {
+        this.notification.error(
+          'Sensor Down in Zone 2A',
+          'Sensor 2 (Zone 2A) was last detected a moment ago.',
+          { nzDuration: 6000 }
+        );
+      } else {
+        this.notification.success(
+          'Sensor Restored in Zone 2A',
+          'Sensor 2 (Zone 2A) is now operational.',
+          { nzDuration: 6000 }
+        );
+      }
+    },
+      // Fulfills TNF-M1.2
+      1000);
   }
 }
