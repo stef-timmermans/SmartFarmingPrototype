@@ -27,7 +27,7 @@ export class Maintenance {
     );
 
     // End maintenance after 1 minute
-    // This fulfills TNF-S2.4
+    // Fulfills TNF-S2.4
     await new Promise(resolve => setTimeout(resolve, 60000));
     this.isMaintenanceActive = false;
 

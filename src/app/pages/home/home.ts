@@ -10,6 +10,6 @@ export class Home {
   constructor(private maintenance: Maintenance) {}
 
   triggerMaintenance() {
-    let promise = this.maintenance.startMaintenance();
+    this.maintenance.startMaintenance()
   }
 }
