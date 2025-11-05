@@ -128,6 +128,8 @@ export class Monitoring {
           { nzDuration: 6000 }
         );
       }
-    }, 1000);
+    },
+      // Fulfills TNF-M1.2
+      1000);
   }
 }

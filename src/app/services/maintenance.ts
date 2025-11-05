@@ -22,16 +22,19 @@ export class Maintenance {
     this.router.navigate(['/login']);
     this.notification.warning(
       'System Maintenance Has Started',
-      'The system is currently under maintenance. You have been logged out. Please try again later.'
+      'The system is currently under maintenance for 1 minute. You have been logged out. Please try again later.',
+      { nzDuration: 6000 }
     );
 
-    // End maintenance after 10s
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    // End maintenance after 1 minute
+    // This fulfills TNF-S2.4
+    await new Promise(resolve => setTimeout(resolve, 60000));
     this.isMaintenanceActive = false;
 
     this.notification.success(
       'System Restored',
-      'Maintenance complete. The system is now back online.'
+      'Maintenance complete. The system is now back online.',
+      { nzDuration: 6000 }
     );
   }
 }
