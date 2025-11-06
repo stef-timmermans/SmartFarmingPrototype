@@ -1,0 +1,56 @@
+.ant-collapse {
+  margin-bottom: 1rem;
+  width: 50%;
+}
+
+.ant-list-item:first-of-type {
+  padding-top: 0;
+}
+.ant-list-item:last-of-type {
+  padding-bottom: 0;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.zone-title {
+  font-weight: 600;
+}
+
+.status-text, .bi-circle-fill {
+  font-size: 14px;
+}
+
+.status-text-ok {
+  color: #22c55e;
+}
+
+.status-text-pending {
+  color: #f86700;
+}
+
+.status-circle-ok {
+  color: #22c55e;
+}
+
+.status-circle-pending {
+  color: #f86700;
+}
+
+nz-tag {
+  font-size: 13px;
+}

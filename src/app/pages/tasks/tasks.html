@@ -1,1 +1,58 @@
-<p>tasks works!</p>
+<h1>Automated Tasks</h1>
+
+<!-- Task Groups -->
+<nz-collapse>
+  <nz-collapse-panel [nzHeader]="fertilizerHeader" [nzActive]="true">
+    <ng-template #fertilizerHeader>
+      <div class="header-grid">
+        <span class="zone-title">Fertilizer Automation</span>
+        <span class="status-text status-text-ok">All Tasks Completed Successfully</span>
+        <i class="bi bi-circle-fill status-circle-ok"></i>
+      </div>
+    </ng-template>
+
+    <nz-list>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Fertilizing – Valve #1</span>
+          <nz-tag nzColor="green">Completed</nz-tag>
+        </div>
+      </nz-list-item>
+
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Fertilizing – Valve #2</span>
+          <nz-tag nzColor="green">Completed</nz-tag>
+        </div>
+      </nz-list-item>
+
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Fertilizing – Valve #3</span>
+          <nz-tag nzColor="green">Completed</nz-tag>
+        </div>
+      </nz-list-item>
+    </nz-list>
+  </nz-collapse-panel>
+</nz-collapse>
+
+<nz-collapse>
+  <nz-collapse-panel [nzHeader]="irrigationHeader" [nzActive]="true">
+    <ng-template #irrigationHeader>
+      <div class="header-grid">
+        <span class="zone-title">Irrigation Control</span>
+        <span class="status-text status-text-pending"><b>1</b> Pending Task</span>
+        <i class="bi bi-circle-fill status-circle-pending"></i>
+      </div>
+    </ng-template>
+
+    <nz-list>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Watering Cycle – Zone 2A</span>
+          <nz-tag nzColor="orange">Pending</nz-tag>
+        </div>
+      </nz-list-item>
+    </nz-list>
+  </nz-collapse-panel>
+</nz-collapse>
