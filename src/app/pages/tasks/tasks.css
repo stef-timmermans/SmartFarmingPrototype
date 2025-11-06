@@ -72,6 +72,7 @@ nz-tag {
   border-radius: 8px;
   padding: 1.2rem;
   margin-bottom: 1.5rem;
+  width: 50%;
 }
 
 .form-buttons {
@@ -90,5 +91,5 @@ button[nz-button] i {
 }
 
 .task-button {
-  margin-right: 30%;
+  margin-right: 50%;
 }

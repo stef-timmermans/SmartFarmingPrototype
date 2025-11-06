@@ -15,11 +15,26 @@
   class="add-task-form"
 >
   <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>Task Type</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <nz-select
+        [(ngModel)]="newTaskType"
+        name="taskType"
+        nzPlaceHolder="Select a task type"
+        required
+      >
+        <nz-option nzValue="fertilizer" nzLabel="Fertilizer Automation"></nz-option>
+        <nz-option nzValue="irrigation" nzLabel="Irrigation Control"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
     <nz-form-label [nzSpan]="6" nzRequired>Task Name</nz-form-label>
     <nz-form-control [nzSpan]="18">
       <input
         nz-input
-        placeholder="e.g., Fertilizing – Valve #4"
+        placeholder="Task name"
         [(ngModel)]="newTaskName"
         name="taskName"
         required
@@ -54,8 +69,29 @@
     <ng-template #fertilizerHeader>
       <div class="header-grid">
         <span class="zone-title">Fertilizer Automation</span>
-        <span class="status-text status-text-ok">All Tasks Completed</span>
-        <i class="bi bi-circle-fill status-circle-ok"></i>
+
+        <span
+          class="status-text"
+          [ngClass]="{
+            'status-text-ok': fertilizerPendingCount === 0,
+            'status-text-pending': fertilizerPendingCount > 0
+          }"
+        >
+          <ng-container *ngIf="fertilizerPendingCount === 0; else pendingText">
+            All Tasks Completed
+          </ng-container>
+          <ng-template #pendingText>
+            <b>{{ fertilizerPendingCount }}</b> Pending Task{{ fertilizerPendingCount > 1 ? 's' : '' }}
+          </ng-template>
+        </span>
+
+        <i
+          class="bi bi-circle-fill"
+          [ngClass]="{
+            'status-circle-ok': fertilizerPendingCount === 0,
+            'status-circle-pending': fertilizerPendingCount > 0
+          }"
+        ></i>
       </div>
     </ng-template>
 
@@ -64,8 +100,13 @@
         <div class="item-grid">
           <span>{{ task.name }}</span>
           <div class="item-right">
-            <span class="task-time">Completed yesterday at {{ task.time }}</span>
-            <i class="bi bi-circle-fill status-circle-ok"></i>
+            <span class="task-time">
+              {{ task.status === 'scheduled' ? 'Scheduled for ' + task.time : 'Completed at ' + task.time }}
+            </span>
+            <i
+              class="bi bi-circle-fill"
+              [ngClass]="task.status === 'scheduled' ? 'status-circle-pending' : 'status-circle-ok'"
+            ></i>
           </div>
         </div>
       </nz-list-item>
