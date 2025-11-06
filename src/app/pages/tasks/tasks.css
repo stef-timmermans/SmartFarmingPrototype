@@ -35,6 +35,10 @@
   font-size: 14px;
 }
 
+.bi-circle-fill {
+  margin-left: 0.75rem;
+}
+
 .status-text-ok {
   color: #22c55e;
 }
@@ -53,4 +57,38 @@
 
 nz-tag {
   font-size: 13px;
+}
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.add-task-form {
+  background: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.task-time {
+  font-size: 14px;
+  color: #888;
+}
+
+button[nz-button] i {
+  margin-right: 6px;
+}
+
+.task-button {
+  margin-right: 30%;
 }

@@ -1,4 +1,52 @@
-<h1>Automated Tasks</h1>
+<!-- Page Header -->
+<div class="tasks-header">
+  <h1>Automated Tasks</h1>
+  <button nz-button nzType="primary" class="task-button" (click)="showAddTaskForm = !showAddTaskForm">
+    <i class="bi bi-plus-circle"></i>
+    Add Task
+  </button>
+</div>
+
+<!-- Add Task Form -->
+<form
+  nz-form
+  *ngIf="showAddTaskForm"
+  (ngSubmit)="addTask()"
+  class="add-task-form"
+>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>Task Name</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input
+        nz-input
+        placeholder="e.g., Fertilizing – Valve #4"
+        [(ngModel)]="newTaskName"
+        name="taskName"
+        required
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>Scheduled Time</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input
+        nz-input
+        type="time"
+        [(ngModel)]="newTaskTime"
+        name="taskTime"
+        required
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24" class="form-buttons">
+      <button nz-button nzType="default" (click)="showAddTaskForm = false" type="button">Cancel</button>
+      <button nz-button nzType="primary" htmlType="submit">Add Task</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
 
 <!-- Task Groups -->
 <nz-collapse>
@@ -6,30 +54,19 @@
     <ng-template #fertilizerHeader>
       <div class="header-grid">
         <span class="zone-title">Fertilizer Automation</span>
-        <span class="status-text status-text-ok">All Tasks Completed Successfully</span>
+        <span class="status-text status-text-ok">All Tasks Completed</span>
         <i class="bi bi-circle-fill status-circle-ok"></i>
       </div>
     </ng-template>
 
     <nz-list>
-      <nz-list-item>
+      <nz-list-item *ngFor="let task of fertilizerTasks">
         <div class="item-grid">
-          <span>Fertilizing – Valve #1</span>
-          <nz-tag nzColor="green">Completed</nz-tag>
-        </div>
-      </nz-list-item>
-
-      <nz-list-item>
-        <div class="item-grid">
-          <span>Fertilizing – Valve #2</span>
-          <nz-tag nzColor="green">Completed</nz-tag>
-        </div>
-      </nz-list-item>
-
-      <nz-list-item>
-        <div class="item-grid">
-          <span>Fertilizing – Valve #3</span>
-          <nz-tag nzColor="green">Completed</nz-tag>
+          <span>{{ task.name }}</span>
+          <div class="item-right">
+            <span class="task-time">Completed yesterday at {{ task.time }}</span>
+            <i class="bi bi-circle-fill status-circle-ok"></i>
+          </div>
         </div>
       </nz-list-item>
     </nz-list>
@@ -50,7 +87,10 @@
       <nz-list-item>
         <div class="item-grid">
           <span>Watering Cycle – Zone 2A</span>
-          <nz-tag nzColor="orange">Pending</nz-tag>
+          <div class="item-right">
+            <span class="task-time">Scheduled for 14:00</span>
+            <i class="bi bi-circle-fill status-circle-pending"></i>
+          </div>
         </div>
       </nz-list-item>
     </nz-list>
