@@ -93,3 +93,7 @@ button[nz-button] i {
 .task-button {
   margin-right: 50%;
 }
+
+.cancel-button {
+  margin-right: 0.5rem;
+}
