@@ -37,7 +37,7 @@ export type ChartOptions = {
     NgClass
   ],
   templateUrl: './monitoring.html',
-  styleUrl: './monitoring.css'
+  styleUrls: ['./monitoring.css']
 })
 export class Monitoring {
   private days: string[];

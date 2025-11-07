@@ -1,1 +1,141 @@
-<p>tasks works!</p>
+<!-- Page Header -->
+<div class="tasks-header">
+  <h1>Automated Tasks</h1>
+  <button nz-button nzType="primary" class="task-button" (click)="showAddTaskForm = !showAddTaskForm">
+    <i class="bi bi-plus-circle"></i>
+    Add Task
+  </button>
+</div>
+
+<!-- Add Task Form -->
+<form
+  nz-form
+  *ngIf="showAddTaskForm"
+  (ngSubmit)="addTask()"
+  class="add-task-form"
+>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>Task Type</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <nz-select
+        [(ngModel)]="newTaskType"
+        name="taskType"
+        nzPlaceHolder="Select a task type"
+        required
+      >
+        <nz-option nzValue="fertilizer" nzLabel="Fertilizer Automation"></nz-option>
+        <nz-option nzValue="irrigation" nzLabel="Irrigation Control"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>Task Name</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <nz-select
+        [(ngModel)]="newTaskName"
+        name="taskName"
+        nzPlaceHolder="Select a valve"
+        required
+      >
+        <nz-option nzValue="Fertilizing – Valve #4" nzLabel="Fertilizing – Valve #4"></nz-option>
+        <nz-option nzValue="Fertilizing – Valve #5" nzLabel="Fertilizing – Valve #5"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzRequired>Scheduled Time</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <input
+        nz-input
+        type="time"
+        [(ngModel)]="newTaskTime"
+        name="taskTime"
+        required
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24" class="form-buttons">
+      <button nz-button nzType="default" (click)="showAddTaskForm = false" type="button" class="cancel-button">Cancel</button>
+      <button nz-button nzType="primary" htmlType="submit">Add Task</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<!-- Task Groups -->
+<nz-collapse>
+  <nz-collapse-panel [nzHeader]="fertilizerHeader" [nzActive]="true">
+    <ng-template #fertilizerHeader>
+      <div class="header-grid">
+        <span class="zone-title">Fertilizer Automation</span>
+
+        <span
+          class="status-text"
+          [ngClass]="{
+            'status-text-ok': fertilizerPendingCount === 0,
+            'status-text-pending': fertilizerPendingCount > 0
+          }"
+        >
+          <ng-container *ngIf="fertilizerPendingCount === 0; else pendingText">
+            All Tasks Completed
+          </ng-container>
+          <ng-template #pendingText>
+            <b>{{ fertilizerPendingCount }}</b> Pending Task{{ fertilizerPendingCount > 1 ? 's' : '' }}
+          </ng-template>
+        </span>
+
+        <i
+          class="bi bi-circle-fill"
+          [ngClass]="{
+            'status-circle-ok': fertilizerPendingCount === 0,
+            'status-circle-pending': fertilizerPendingCount > 0
+          }"
+        ></i>
+      </div>
+    </ng-template>
+
+    <nz-list>
+      <nz-list-item *ngFor="let task of fertilizerTasks">
+        <div class="item-grid">
+          <span>{{ task.name }}</span>
+          <div class="item-right">
+            <span class="task-time">
+              {{ task.status === 'scheduled' ? 'Scheduled for ' + task.time : 'Completed at ' + task.time }}
+            </span>
+            <i
+              class="bi bi-circle-fill"
+              [ngClass]="task.status === 'scheduled' ? 'status-circle-pending' : 'status-circle-ok'"
+            ></i>
+          </div>
+        </div>
+      </nz-list-item>
+    </nz-list>
+  </nz-collapse-panel>
+</nz-collapse>
+
+<nz-collapse>
+  <nz-collapse-panel [nzHeader]="irrigationHeader" [nzActive]="true">
+    <ng-template #irrigationHeader>
+      <div class="header-grid">
+        <span class="zone-title">Irrigation Control</span>
+        <span class="status-text status-text-pending"><b>1</b> Pending Task</span>
+        <i class="bi bi-circle-fill status-circle-pending"></i>
+      </div>
+    </ng-template>
+
+    <nz-list>
+      <nz-list-item>
+        <div class="item-grid">
+          <span>Watering Cycle – Zone 2A</span>
+          <div class="item-right">
+            <span class="task-time">Scheduled for 14:00</span>
+            <i class="bi bi-circle-fill status-circle-pending"></i>
+          </div>
+        </div>
+      </nz-list-item>
+    </nz-list>
+  </nz-collapse-panel>
+</nz-collapse>
